@@ -15,4 +15,8 @@ export class BoardComponent implements OnInit {
   public ngOnInit() {
     this.cards = this._boardService.generateDeck();
   }
+
+  public shuffleDeck() {
+    this._boardService.shuffleDeck(this.cards);
+  }
 }
