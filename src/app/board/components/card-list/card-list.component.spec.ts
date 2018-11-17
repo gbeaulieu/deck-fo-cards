@@ -1,23 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { BoardComponent } from './board.component';
+import { CardListComponent } from './card-list.component';
 
-
-describe('BoardComponent', () => {
-  let component: BoardComponent;
-  let fixture: ComponentFixture<BoardComponent>;
+describe('CardListComponent', () => {
+  let component: CardListComponent;
+  let fixture: ComponentFixture<CardListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BoardComponent ],
+      declarations: [ CardListComponent ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BoardComponent);
+    fixture = TestBed.createComponent(CardListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
