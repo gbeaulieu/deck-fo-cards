@@ -1,3 +1,1 @@
-<p *ngFor="let card of cards">
-  {{card.id}} - {{card.kind}} - {{card.faceValue}}
-</p>
+<app-card *ngFor="let card of cards" [card]="card"></app-card>
