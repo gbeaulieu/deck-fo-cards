@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 import { Card } from '../../models/card';
 import { CardKind } from '../../models/card-kind';
+import { FaceValue } from '../../models/face-value';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -21,7 +22,7 @@ describe('CardComponent', () => {
     component.card = {
       id: 1,
       kind: CardKind.Heart,
-      faceValue: 'Ace'
+      faceValue: FaceValue.Ace
     } as Card;
     fixture.detectChanges();
   });
