@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { BoardComponent } from './board.component';
 import { BoardRoutingModule } from './board-routing.module';
 import { CardListComponent } from './components/card-list/card-list.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     BoardComponent,
-    CardListComponent
+    CardListComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
