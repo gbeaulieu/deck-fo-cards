@@ -1,6 +1,9 @@
-<h1>
-  {{title}}
-</h1>
-<button routerLink="">Home</button>
-<button routerLink="/board">Board</button>
+<mat-toolbar color="primary">
+  <span>
+      {{title}}
+  </span>
+
+  <button mat-button routerLink="">Home</button>
+  <button mat-button routerLink="/board">Board</button>
+</mat-toolbar>
 <router-outlet></router-outlet>
