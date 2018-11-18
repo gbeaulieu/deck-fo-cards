@@ -9,12 +9,17 @@
         (click)="dealOneCard()">
         Deal one card
 </button>
-<h1>Your card</h1>
-<app-card *ngIf="dealedCard$ | async" [card]= "dealedCard$ | async"></app-card>
-<h1>Deck</h1>
-<mat-list>
-    <mat-list-item *ngFor="let card of cards$ |async">
-            <app-card [card]= "card"></app-card>
-    </mat-list-item>
-</mat-list>
-<!-- <app-card-list [cards]="cards$ | async"></app-card-list> -->
+<div class="container">
+    <div>
+        <h1>Deck</h1>
+        <mat-list>
+            <mat-list-item *ngFor="let card of cards$ |async">
+                <app-card [card]= "card"></app-card>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div>
+        <h1>Your card</h1>
+        <app-card *ngIf="dealedCard$ | async" [card]= "dealedCard$ | async"></app-card>
+    </div>
+</div>
