@@ -9,6 +9,7 @@ import { BoardService } from './services/board.service';
 })
 export class BoardComponent implements OnInit {
   public cards: Card[];
+  public cardDealed: Card;
 
   constructor(private _boardService: BoardService) {}
 
@@ -18,5 +19,9 @@ export class BoardComponent implements OnInit {
 
   public shuffleDeck() {
     this._boardService.shuffleDeck(this.cards);
+  }
+
+  public dealOneCard() {
+    this.cardDealed = this.cards.shift();
   }
 }
