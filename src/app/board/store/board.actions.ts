@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { Card } from '../models/card';
 
 export enum BoardActionType {
     GenerateDeckRequest = '[Board] Generate deck request',
@@ -14,16 +15,16 @@ export class GenerateDeckRequest implements Action {
 
 export class GenerateDeckComplete implements Action {
     public type: string = BoardActionType.GenerateDeckComplete;
+    constructor(public payload: Card[]) {}
 }
-
 
 export class ShuffleDeckRequest implements Action {
     public type: string = BoardActionType.ShuffleDeckRequest;
 }
 
-
 export class ShuffleDeckComplete implements Action {
     public type: string = BoardActionType.ShuffleDeckComplete;
+    constructor(public payload: Card[]) {}
 }
 
 export class DealOneCard implements Action {
