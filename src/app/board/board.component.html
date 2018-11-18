@@ -13,8 +13,9 @@
     <div>
         <h1>Deck</h1>
         <mat-list>
-            <mat-list-item *ngFor="let card of cards$ |async">
+            <mat-list-item *ngFor="let card of cards$ |async; last as last">
                 <app-card [card]= "card"></app-card>
+                <mat-divider *ngIf="!last"></mat-divider>
             </mat-list-item>
         </mat-list>
     </div>
