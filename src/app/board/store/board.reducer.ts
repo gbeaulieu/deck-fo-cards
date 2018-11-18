@@ -7,32 +7,36 @@ import {
     ShuffleDeckComplete,
     GenerateDeckRequest
 } from './board.actions';
-import { isOfType } from 'src/app/shared/store/helpers/action/action.helper';
 
 export function boardReducer(
     state = initialBoardState,
     action: BoardActions
 ): BoardState {
-    if (isOfType<GenerateDeckRequest>(action, BoardActionType.GenerateDeckRequest)) {
-        state = {...state, dealedCard: null};
-        return boardStateAdapter.removeAll(state);
-    }
+    switch (action.type) {
+        case BoardActionType.GenerateDeckRequest: {
+            state = {...state, dealedCard: null};
+            return boardStateAdapter.removeAll(state);
+        }
 
-    if (isOfType<GenerateDeckComplete>(action, BoardActionType.GenerateDeckComplete)) {
-        return boardStateAdapter.addAll(action.payload, state);
-    }
+        case BoardActionType.GenerateDeckComplete: {
+            const generateDeckComplete = action as GenerateDeckComplete;
+            return boardStateAdapter.addAll(generateDeckComplete.payload, state);
+        }
 
-    if (isOfType<ShuffleDeckComplete>(action, BoardActionType.ShuffleDeckComplete)) {
-        state = boardStateAdapter.removeAll(state);
-        return boardStateAdapter.addAll(action.payload, state);
-    }
+        case BoardActionType.ShuffleDeckComplete: {
+            const shuffleDeckComplete = action as ShuffleDeckComplete;
+            state = boardStateAdapter.removeAll(state);
+            return boardStateAdapter.addAll(shuffleDeckComplete.payload, state);
+        }
 
-    if (isOfType<DealOneCard>(action, BoardActionType.DealOneCard)) {
-        const cardToDealId = state.ids[0] as string;
-        const cardtoDeal = state.entities[cardToDealId];
-        state = {...state, dealedCard: cardtoDeal};
-        return boardStateAdapter.removeOne(cardToDealId, state);
-    }
+        case BoardActionType.DealOneCard: {
+            const cardToDealId = state.ids[0] as string;
+            const cardtoDeal = state.entities[cardToDealId];
+            state = {...state, dealedCard: cardtoDeal};
+            return boardStateAdapter.removeOne(cardToDealId, state);
+        }
 
-    return state;
+        default:
+            return state;
+    }
 }
