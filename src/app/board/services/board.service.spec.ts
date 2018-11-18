@@ -36,13 +36,20 @@ describe('BoardService', () => {
       expect(deck.length).toBe(52);
     });
 
-    it('should shuffle the first card', () => {
+    it('should move at least one card', () => {
       deck = service.generateDeck();
       const originalDeck = Object.assign({}, deck);
 
       service.shuffleDeck(deck);
 
-      expect(deck[0]).not.toBe(originalDeck[0]);
+      let atLeastOneChanged = false;
+
+      deck.forEach((card, index) => {
+        if (card !== originalDeck[index]) {
+          atLeastOneChanged = true;
+        }
+      });
+      expect(atLeastOneChanged).toBeTruthy();
     });
   });
 });
