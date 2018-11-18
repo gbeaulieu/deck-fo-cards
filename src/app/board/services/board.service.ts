@@ -41,7 +41,7 @@ export class BoardService {
     let deck: Card[] = [];
     this.cardKinds.forEach((kind, kindIndex) =>
       this.faceValues.forEach((faceValue, faceValueIndex) => {
-        const cardId = (kindIndex + 1) * (faceValueIndex + 1);
+        const cardId = (kindIndex * 13) + (faceValueIndex + 1);
         deck.push(new Card(cardId, kind, faceValue));
       })
     );
