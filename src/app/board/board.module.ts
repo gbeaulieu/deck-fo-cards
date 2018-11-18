@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatListModule } from '@angular/material';
 
 import { BoardComponent } from './board.component';
 import { BoardRoutingModule } from './board-routing.module';
-import { CardListComponent } from './components/card-list/card-list.component';
 import { CardComponent } from './components/card/card.component';
 import { boardReducer } from './store/board.reducer';
 import { BoardEffects } from './store/board.effects';
@@ -14,7 +13,6 @@ import { BoardEffects } from './store/board.effects';
 @NgModule({
   declarations: [
     BoardComponent,
-    CardListComponent,
     CardComponent
   ],
   imports: [
@@ -22,7 +20,8 @@ import { BoardEffects } from './store/board.effects';
     BoardRoutingModule,
     StoreModule.forFeature('boardState', boardReducer),
     EffectsModule.forFeature([BoardEffects]),
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ]
 })
 export class BoardModule { }

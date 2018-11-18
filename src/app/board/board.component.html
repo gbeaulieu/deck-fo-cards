@@ -1,6 +1,20 @@
-<button mat-raised-button color="primary" (click)="shuffleDeck()">Shuffle</button>
-<button mat-raised-button color="primary" [disabled]="cannotDealOneCard$ | async" (click)="dealOneCard()">Deal one card</button>
+<button mat-raised-button
+        color="primary"
+        (click)="shuffleDeck()">
+        Shuffle
+</button>
+<button mat-raised-button
+        color="primary"
+        [disabled]="cannotDealOneCard$ | async"
+        (click)="dealOneCard()">
+        Deal one card
+</button>
 <h1>Your card</h1>
 <app-card *ngIf="dealedCard$ | async" [card]= "dealedCard$ | async"></app-card>
 <h1>Deck</h1>
-<app-card-list [cards]="cards$ | async"></app-card-list>
+<mat-list>
+    <mat-list-item *ngFor="let card of cards$ |async">
+            <app-card [card]= "card"></app-card>
+    </mat-list-item>
+</mat-list>
+<!-- <app-card-list [cards]="cards$ | async"></app-card-list> -->
