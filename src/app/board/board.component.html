@@ -21,6 +21,6 @@
     </div>
     <div>
         <h1>Your card</h1>
-        <app-card *ngIf="dealedCard$ | async" [card]= "dealedCard$ | async"></app-card>
+        <app-card class="mat-list-item" *ngIf="dealedCard$ | async" [card]= "dealedCard$ | async"></app-card>
     </div>
 </div>
